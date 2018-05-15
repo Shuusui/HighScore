@@ -8,59 +8,61 @@ namespace HighScore
 {
     public class HighScoreController
     {
-        private IGameRepos gameRepos;
-        private IScoreRepos scoreRepos;
-        private IUserRepos userRepos;
+        private ISessionScope sessionScope;
 
-        public HighScoreController(IGameRepos gameRepos, IUserRepos userRepos, IScoreRepos scoreRepos)
+        public HighScoreController(ISessionScope sessionScope)
         {
-            this.gameRepos = gameRepos;
-            this.scoreRepos = scoreRepos;
-            this.userRepos = userRepos; 
+            this.sessionScope = sessionScope;
         }
 
 
         public User CreateUser(string name)
         {
             var user = new User { Name = name };
-            return user = userRepos.Create(user);            
+            user = sessionScope.UserRepos.Create(user);
+            sessionScope.Save();
+            return user;
         }
 
         public Game CreateGame(string name)
         {
             var game = new Game { Name = name };
-            return gameRepos.Create(game);
+            sessionScope.GameRepos.Create(game);
+            sessionScope.Save();
+            return game;
         }
 
         public Score CreateScore(int points, Game game, User user)
         {
             var score = new Score { Points = points, Game = game, User = user };
-            return scoreRepos.Create(score);
+            sessionScope.ScoreRepos.Create(score);
+            sessionScope.Save();
+            return score;
         }
 
         public IEnumerable<Game> GetGames()
         {
-            return gameRepos.GetAll();
+            return sessionScope.GameRepos.GetAll();
         }
 
         public IEnumerable<User> GetUsers()
         {
-            return userRepos.GetAll();
+            return sessionScope.UserRepos.GetAll();
         }
 
         public IEnumerable<Score> GetScoresPerGame(Game game)
         {
-            return scoreRepos.GetScoresPerGame(game);
+            return sessionScope.ScoreRepos.GetScoresPerGame(game);
         }
 
         public IEnumerable<Score> GetScoresPerUser(User user)
         {
-            return scoreRepos.GetScoresPerUser(user);
+            return sessionScope.ScoreRepos.GetScoresPerUser(user);
         }
         
         public IEnumerable<TotalScore> GetTotalScores()
         {
-            return userRepos.GetTotalScores();
+            return sessionScope.UserRepos.GetTotalScores();
         }
 
     }

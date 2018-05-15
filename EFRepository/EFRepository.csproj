@@ -70,7 +70,10 @@
     <Compile Include="EFGameRepos.cs" />
     <Compile Include="EFRepos.cs" />
     <Compile Include="EFScoreRepso.cs" />
+    <Compile Include="EFSessionScope.cs" />
     <Compile Include="EFUserRepos.cs" />
+    <Compile Include="HighScoreDbContext.cs" />
+    <Compile Include="HighScoreInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -53,11 +53,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Game.cs" />
-    <Compile Include="HighScoreDbContext.cs" />
-    <Compile Include="HighScoreInitializer.cs" />
     <Compile Include="IGameRepos.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="IScoreRepos.cs" />
+    <Compile Include="ISessionScope.cs" />
     <Compile Include="IUserRepos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Score.cs" />

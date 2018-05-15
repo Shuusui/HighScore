@@ -5,11 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using HighScore;
 
-namespace EFRepository
+namespace Server
 {
-    public class EFGameRepos :EFRepos<Game>, IGameRepos
+    public interface IControllerFactory
     {
-        public EFGameRepos(HighScoreDbContext ctx) : base(ctx) { }
-
+        HighScoreController Produce();
     }
 }

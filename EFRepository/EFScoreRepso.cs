@@ -7,9 +7,9 @@ using HighScore;
 
 namespace EFRepository
 {
-    class EFScoreRepso : EFRepos<Score>, IScoreRepos
+    public class EFScoreRepso : EFRepos<Score>, IScoreRepos
     {
-        EFScoreRepso(HighScoreDbContext ctx) : base(ctx) { }
+        public EFScoreRepso(HighScoreDbContext ctx) : base(ctx) { }
 
         public IEnumerable<Score> GetScoresPerUser(User user)
         {

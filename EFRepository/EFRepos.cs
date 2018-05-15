@@ -7,7 +7,7 @@ using HighScore;
 
 namespace EFRepository
 {
-    class EFRepos<TEntity> : IRepository<TEntity> where TEntity :class
+    public class EFRepos<TEntity> : IRepository<TEntity> where TEntity :class
      {
         protected HighScoreDbContext ctx;
         public EFRepos(HighScoreDbContext ctx) { this.ctx = ctx; }
