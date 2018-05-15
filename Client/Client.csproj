@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6F179208-F41E-433D-9959-E5A7EDBA5A64}</ProjectGuid>
+    <ProjectGuid>{747B1D69-DE65-4DD0-A7B7-D74D2C4526C7}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Server</RootNamespace>
-    <AssemblyName>Server</AssemblyName>
+    <RootNamespace>Client</RootNamespace>
+    <AssemblyName>Client</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -32,14 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
@@ -50,31 +43,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ControllerFactory.cs" />
-    <Compile Include="Converter.cs" />
-    <Compile Include="HighScoreController.cs" />
-    <Compile Include="HighScoreService.cs" />
-    <Compile Include="Host.cs" />
-    <Compile Include="IControllerFactory.cs" />
+    <Compile Include="HighscoreService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{bb7d0d06-0ffb-474e-bd54-c2502072485d}</Project>
       <Name>Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EFRepository\EFRepository.csproj">
-      <Project>{403b6486-0fd7-49ae-bfa0-990ea5c09fa0}</Project>
-      <Name>EFRepository</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\HighScore\HighScore.csproj">
-      <Project>{8d29b15a-5fb8-42bc-94c3-496a455ff95e}</Project>
-      <Name>HighScore</Name>
+    <ProjectReference Include="..\Server\Server.csproj">
+      <Project>{6f179208-f41e-433d-9959-e5a7edba5a64}</Project>
+      <Name>Server</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

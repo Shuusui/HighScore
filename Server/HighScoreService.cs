@@ -8,9 +8,9 @@ using HighScore;
 
 namespace Server
 {
-    class HighScoreService : IService
+    class HighScoreService<TEntity> : IService where TEntity: IControllerFactory, new()
     {
-        private HighScoreController controller;
+        private HighScoreController controller = new TEntity().Produce();
 
         public HighScoreService() { }
 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HighScore;
+using EFRepository;
 namespace Server
 {
     public class ControllerFactory : IControllerFactory
@@ -11,7 +12,7 @@ namespace Server
         
         public HighScoreController Produce()
         {
-            return new HighScoreController();
+            return new HighScoreController(new EFSessionScope());
         }
     }
 }
